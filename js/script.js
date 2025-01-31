@@ -18,7 +18,7 @@ function searchProducts() {
 
 			data.forEach((product) => {
 				// Get the image URL (using 'img_sml' field)
-				let imageUrl = product.img_sml || "default-image.jpg"; // Fallback image if no image available
+				let imageUrl = product.img_sml || "images/default-image.jpg"; // Fallback image if no image available
 
 				// Display the image, title, and destination in the requested order
 				resultsDiv.innerHTML += `
