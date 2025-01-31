@@ -16,18 +16,19 @@ function searchProducts() {
 				return;
 			}
 
-			data.forEach((product) => {
+			// Limit results to the first 10
+			data.slice(0, 10).forEach((product) => {
 				// Get the image URL (using 'img_sml' field)
 				let imageUrl = product.img_sml || "images/default-image.jpg"; // Fallback image if no image available
 
 				// Display the image, title, and destination in the requested order
 				resultsDiv.innerHTML += `
-                    <div class="product-container">
-                        <img src="${imageUrl}" alt="${product.title}" style="max-width: 200px; height: auto;">
-                        <h3>${product.title}</h3>
-                        <p>Destination: ${product.dest}</p>
-                    </div>
-                `;
+					<div class="product-container">
+						<img src="${imageUrl}" alt="${product.title}" style="max-width: 200px; height: auto;">
+						<h3>${product.title}</h3>
+						<p>Destination: ${product.dest}</p>
+					</div>
+				`;
 			});
 		})
 		.catch((error) => console.error("Error:", error));
